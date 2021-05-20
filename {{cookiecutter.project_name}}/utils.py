@@ -47,15 +47,14 @@ def get_my_logger(logger_name: str) -> logging.Logger:
     return logger
 
 
-def get_now_jst(_format: str) -> str:
-    """日本時間の現在時刻を指定フォーマットで文字列取得します。
-    例 %Y-%m-%d %H:%M:%S
-    NOTE: format はビルトインメソッドがあるので一応 underscore をつけています。
+def get_now_jst() -> datetime.datetime:
+    """datetime.datetime.now を日本時間で取得します。
+    NOTE: フォーマットはいつも参照してしまうのでここに note しておきます %Y-%m-%d %H:%M:%S
+          あるいは .isoformat() も良い。
     """
-
     TZ_JAPAN = pytz.timezone('Asia/Tokyo')
     current_jst_time = datetime.datetime.now(tz=TZ_JAPAN)
-    return current_jst_time.strftime(_format)
+    return current_jst_time
 
 
 def send_slack_message(message: str) -> None:
@@ -90,5 +89,5 @@ if __name__ == '__main__':
     logger.error('えろあ')
     logger.fatal('ふぇーたる(critical と同じっぽい)')
     logger.critical('くりてぃこぉ')
-    logger.debug('get_now_jst -> ' + get_now_jst('%Y-%m-%d %H:%M:%S'))
+    logger.debug('get_now_jst -> ' + get_now_jst().isoformat())
     send_slack_message('"utils.py" run for test. Sorry for the notification!')
