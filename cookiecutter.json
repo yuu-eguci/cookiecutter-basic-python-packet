@@ -1,3 +1,6 @@
 {
-    "project_name": "basic-packet"
+    "project_name": "basic-packet",
+    "full_name": "yuu-eguci",
+    "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+    "project_short_description": ""
 }
