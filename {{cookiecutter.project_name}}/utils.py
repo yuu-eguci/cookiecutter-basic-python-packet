@@ -91,7 +91,7 @@ class DbClient:
             'host': consts.MYSQL_HOST,
             'user': consts.MYSQL_USER,
             'password': consts.MYSQL_PASSWORD,
-            'database': consts.MYSQL_DATABASE,
+            'database': consts.MYSQL_SCHEMA_NAME,
         }
         self.connection = mysql.connector.connect(**mysql_connection_config)
         return self
